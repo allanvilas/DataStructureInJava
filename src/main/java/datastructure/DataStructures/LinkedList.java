@@ -22,30 +22,32 @@ public class LinkedList {
         tail = newNode;
     }
 
-    public void getHead(){
-        if(this.head == null) {
+    public void getHead() {
+        if (this.head == null) {
             System.out.println("Lista Vazia");
         } else {
             System.out.println("Head: " + head.data);
         }
     }
-    public void getTail(){
-        if(this.tail == null) {
+
+    public void getTail() {
+        if (this.tail == null) {
             System.out.println("Lista Vazia");
         } else {
             System.out.println("Tail: " + tail.data);
         }
     }
 
-    public void getLength(){
-        System.out.println("Length: "+this.length);
+    public void getLength() {
+        System.out.println("Length: " + this.length);
     }
 
     public Node get(int index) {
-        if (index <0 || index >= length) return null;
+        if (index < 0 || index >= length)
+            return null;
         Node temp = head;
 
-        for(int i = 0; i<index; i++){
+        for (int i = 0; i < index; i++) {
             temp = temp.next;
         }
         return temp;
@@ -56,13 +58,15 @@ public class LinkedList {
         tail = null;
         length = 0;
     }
-    public Node removeFirst(){
-        if (length == 0) return null;
+
+    public Node removeFirst() {
+        if (length == 0)
+            return null;
         Node temp = head;
         head = head.next;
         temp.next = null;
         length--;
-        if(length == 0){
+        if (length == 0) {
             head = null;
             tail = null;
         }
@@ -70,9 +74,12 @@ public class LinkedList {
     }
 
     public Node remove(int index) {
-        if (index <0 || index >= length) return null;
-        if (index == 0) return removeFirst();
-        if (index == length -1) return removeLast();
+        if (index < 0 || index >= length)
+            return null;
+        if (index == 0)
+            return removeFirst();
+        if (index == length - 1)
+            return removeLast();
         Node prev = get(index - 1);
         Node temp = prev.next;
 
@@ -85,8 +92,8 @@ public class LinkedList {
 
     public void append(String data) {
         Node newNode = new Node(data);
-        
-        if(length == 0) {
+
+        if (length == 0) {
             head = newNode;
             tail = newNode;
         } else {
@@ -99,13 +106,14 @@ public class LinkedList {
 
     public boolean insert(int index, String data) {
 
-        if (index <0 || index >= length) return false;
+        if (index < 0 || index >= length)
+            return false;
 
-        if(index == 0){
+        if (index == 0) {
             prepend(data);
             return true;
         }
-        if (index == length){
+        if (index == length) {
             append(data);
             return true;
         }
@@ -121,10 +129,10 @@ public class LinkedList {
     public boolean set(int index, String data) {
         Node temp = get(index);
 
-        if(temp != null){
+        if (temp != null) {
             temp.data = data;
             return true;
-        } 
+        }
         return false;
     }
 
@@ -132,7 +140,7 @@ public class LinkedList {
 
         Node newNode = new Node(data);
 
-        if(length == 0){
+        if (length == 0) {
             head = newNode;
             tail = newNode;
         } else {
@@ -143,12 +151,13 @@ public class LinkedList {
         length++;
     }
 
-    public Node removeLast(){
-        if(length == 0) return null;
+    public Node removeLast() {
+        if (length == 0)
+            return null;
         Node pre = head;
         Node temp = null;
 
-        while(pre.next != tail) {
+        while (pre.next != tail) {
             pre = pre.next;
         }
 
@@ -157,8 +166,8 @@ public class LinkedList {
         tail.next = null;
 
         length--;
-        
-        if(length == 0){
+
+        if (length == 0) {
             head = null;
             tail = null;
         }
