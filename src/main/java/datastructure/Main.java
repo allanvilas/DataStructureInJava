@@ -6,7 +6,6 @@ import datastructure.DataStructures.Queue;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
 
         LinkedList list = new LinkedList("Elemento 1");
         // list.append("Elemento 2");

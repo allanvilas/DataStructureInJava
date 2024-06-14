@@ -5,13 +5,17 @@ public class LinkedList {
     private Node tail;
     private int length;
 
-    class Node {
-        String data;
+    public class Node {
+        private String data;
 
         Node next;
 
         Node(String data) {
             this.data = data;
+        }
+
+        public String getData(){
+            return this.data;
         }
     }
 
@@ -22,19 +26,19 @@ public class LinkedList {
         tail = newNode;
     }
 
-    public void getHead() {
+    public Node getHead() {
         if (this.head == null) {
-            System.out.println("Lista Vazia");
+            return null;
         } else {
-            System.out.println("Head: " + head.data);
+            return head;
         }
     }
 
-    public void getTail() {
+    public Node getTail() {
         if (this.tail == null) {
-            System.out.println("Lista Vazia");
+            return null;
         } else {
-            System.out.println("Tail: " + tail.data);
+            return tail;
         }
     }
 
