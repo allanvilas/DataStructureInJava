@@ -7,10 +7,16 @@ import org.junit.jupiter.api.Nested;
 
 import datastructure.DataStructures.Stack;
 
+/**
+ * JUnit tests for the Stack data structure.
+ */
 public class StackTest {
     
     Stack<Integer> stack = new Stack<>(10);
 
+    /**
+     * Test case: Instance and get initialization node from stack
+     */
     @Test
     @DisplayName("Instance and get initialization node from stack")
     public void TestNewStackInstance() {
@@ -19,8 +25,11 @@ public class StackTest {
         assertEquals(1, stack.getHeigth());
     }
 
+    /**
+     * Test case: Test if method make empty does its job
+     */
     @Test
-    @DisplayName("Test if method make empty do it`s job")
+    @DisplayName("Test if method make empty do its job")
     public void testMakingStackEmpty() {
         Stack<Integer> stack = this.stack;
         stack.makeEmpty();
@@ -28,44 +37,61 @@ public class StackTest {
         assertEquals(0, stack.getHeigth());
     }
 
+    /**
+     * Nested tests for pushing new items into the stack.
+     */
     @Nested
     class StackPushNewItemTests {
+
+        /**
+         * Test case: Test if method makeEmpty correctly empties the stack
+         */
         @Test
         @DisplayName("Test if method makeEmpty correctly empties the stack")
         public void testMakeEmpty() {
             Stack<Integer> stack = new Stack<>(10);
 
-            // Verifica se a pilha inicialmente tem um elemento
+            // Check if the stack initially has one item
             assertEquals(1, stack.getHeigth());
 
-            // Esvazia a pilha
+            // Empty the stack
             stack.makeEmpty();
 
-            // Verifica se a pilha está vazia
+            // Check if the stack is empty
             assertEquals(0, stack.getHeigth());
         }
 
+        /**
+         * Test case: Test pushing a new item into the stack after it has been emptied
+         */
         @Test
         @DisplayName("Test pushing a new item into the stack after it has been emptied")
         public void testPushAfterEmpty() {
             Stack<Integer> stack = new Stack<>(10);
 
-            // Esvazia a pilha
+            // Empty the stack
             stack.makeEmpty();
 
-            // Adiciona um novo item à pilha
+            // Push a new item onto the stack
             stack.push(5);
 
-            // Verifica se o novo item está no topo da pilha
+            // Check if the new item is at the top of the stack
             assertEquals(5, stack.getTop().getValue());
 
-            // Verifica se a altura da pilha é 1
+            // Check if the stack height is 1
             assertEquals(1, stack.getHeigth());
         }
     }
 
+    /**
+     * Nested tests for popping items from the stack.
+     */
     @Nested
     class StackPopItemTests {
+
+        /**
+         * Test case: Test if pop removes an item and returns true
+         */
         @Test
         @DisplayName("Test if pop removes an item and returns true")
         public void testPopRemovesItemAndReturnsTrue() {
@@ -73,10 +99,12 @@ public class StackTest {
             assertTrue(stack.pop());
         } 
 
+        /**
+         * Test case: Test if pop returns false when tried to pop from an empty stack
+         */
         @Test
-        @DisplayName("Test if pops return true when tried to pop from a empty stack")
-        public void testPopReturnFalseWhenTriedToPopOnEmptyStack()
-        {
+        @DisplayName("Test if pop returns false when tried to pop from an empty stack")
+        public void testPopReturnFalseWhenTriedToPopOnEmptyStack() {
             Stack<Integer> stack = new Stack<>(10);
             stack.makeEmpty();
             assertFalse(stack.pop());
