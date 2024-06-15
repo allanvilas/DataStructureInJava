@@ -82,7 +82,7 @@ public class TreeTest {
         tree.insert(15);
         tree.insert(2);
         tree.insert(25);
-        assertIterableEquals(expectedArray, tree.preOrder());
+        assertArrayEquals(expectedArray.toArray(), tree.preOrder().toArray());
     }
 
     /**
@@ -96,7 +96,7 @@ public class TreeTest {
         tree.insert(15);
         tree.insert(2);
         tree.insert(25);
-        assertIterableEquals(expectedArray, tree.inOrder());
+        assertArrayEquals(expectedArray.toArray(), tree.inOrder().toArray());
     }
 
     /**
@@ -110,7 +110,7 @@ public class TreeTest {
         tree.insert(15);
         tree.insert(2);
         tree.insert(25);
-        assertIterableEquals(expectedArray, tree.posOrder());
+        assertArrayEquals(expectedArray.toArray(), tree.posOrder().toArray());
     }
 
     /**
