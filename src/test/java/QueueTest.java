@@ -7,7 +7,7 @@ import datastructure.DataStructures.Queue;
  */
 public class QueueTest {
 
-    private Queue<Integer> queue = new Queue<>(1)
+    private Queue<Integer> queue = new Queue<>(1);
 
     /**
      * Test case to verify the enqueue operation.
