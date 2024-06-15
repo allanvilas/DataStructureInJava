@@ -41,7 +41,7 @@ public class TreeTest {
     @Test
     @DisplayName("Test if a node is a leaf node")
     public void testIfNodeIsLeaf() {
-        Tree<Integer> tree = this.tree;
+        Tree<Integer> tree = new Tree<>(10);
         assertTrue(tree.root.isLeaf());
     }
 
@@ -51,7 +51,7 @@ public class TreeTest {
     @Test 
     @DisplayName("Insert new item in the first open position")
     public void testInsertingNewItem() {
-        Tree<Integer> tree = this.tree;
+        Tree<Integer> tree = new Tree<>(10);
 
         tree.insert(15);
 
@@ -64,7 +64,7 @@ public class TreeTest {
     @Test
     @DisplayName("Test if newly inserted item is a leaf node")
     public void testNewInsertedItemIsLeaf() {
-        Tree<Integer> tree = this.tree;
+        Tree<Integer> tree = new Tree<>(10);
 
         tree.insert(15);
 
@@ -77,7 +77,7 @@ public class TreeTest {
     @Test
     @DisplayName("Test if pre-order traversal returns items in correct order")
     public void testPreOrderOrdering() {
-        Tree<Integer> tree = this.tree;
+        Tree<Integer> tree = new Tree<>(10);
         ArrayList<Integer> expectedArray = new ArrayList<>(Arrays.asList(10, 15, 25, 2));
         tree.insert(15);
         tree.insert(2);
@@ -91,7 +91,7 @@ public class TreeTest {
     @Test
     @DisplayName("Test if in-order traversal returns items in correct order")
     public void testInOrderOrdering() {
-        Tree<Integer> tree = this.tree;
+        Tree<Integer> tree = new Tree<>(10);
         ArrayList<Integer> expectedArray = new ArrayList<>(Arrays.asList(25, 15, 10, 2));
         tree.insert(15);
         tree.insert(2);
@@ -105,7 +105,7 @@ public class TreeTest {
     @Test
     @DisplayName("Test if post-order traversal returns items in correct order")
     public void testPostOrderOrdering() {
-        Tree<Integer> tree = this.tree;
+        Tree<Integer> tree = new Tree<>(10);
         ArrayList<Integer> expectedArray = new ArrayList<>(Arrays.asList(25, 15, 2, 10));
         tree.insert(15);
         tree.insert(2);
@@ -119,7 +119,7 @@ public class TreeTest {
     @Test
     @DisplayName("Test Breadth-First Search (BFS) algorithm")
     public void testBFSAlgorithm() {
-        Tree<Integer> tree = this.tree;
+        Tree<Integer> tree = new Tree<>(10);
         tree.insert(15);
         tree.insert(2);
         tree.insert(25);

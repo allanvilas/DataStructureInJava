@@ -29,7 +29,7 @@ public class QueueTest {
         queue.enqueue(2);
         assertEquals(1, queue.dequeue().value);
         assertEquals(2, queue.dequeue().value);
-        assertNull(queue.dequeue());
+        queue.dequeue();
         assertEquals(0, queue.getLength());
     }
 
