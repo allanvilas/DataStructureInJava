@@ -1,53 +1,52 @@
 package datastructure.DataStructures;
 
-public class Queue {
+public class Queue<T> {
 
-    private Node first;
-    private Node last;
+    private Node<T> first;
+    private Node<T> last;
     private int length;
 
-    public class Node {
-        public int value;
+    public class Node<T> {
+        public T value;
 
-        Node next;
+        Node<T> next;
 
-        Node(int value) {
+        Node(T value) {
             this.value = value;
         }
     }
 
-    public Queue(int value) {
-        Node newNode = new Node(value);
+    public Queue(T value) {
+        Node<T> newNode = new Node<>(value);
         this.first = newNode;
         this.last = newNode;
         length++;
     }
 
-    public void getFirst() {
+    public Node<T> getFirst() {
         if (first != null) {
-            System.out.println("First: " + first.value);
-
+            return first;
         } else {
-            System.out.println("Queue empty");
+            return null;
         }
     }
 
-    public void getLast() {
+    public Node<T> getLast() {
         if (last != null) {
-            System.out.println("Last: " + last.value);
+            return last;
 
         } else {
-            System.out.println("Queue empty");
+            return null;
         }
     }
 
-    public void getLength() {
-        System.out.println("Length: " + length);
+    public int getLength() {
+        return length;
     }
 
     public void print() {
         System.out.println("##############");
-        Node temp = first;
+        Node<T> temp = first;
         while (temp != null) {
             System.out.println(temp.value);
             temp = temp.next;
@@ -55,8 +54,8 @@ public class Queue {
         System.out.println("##############");
     }
 
-    public void enqueue(int value) {
-        Node newNode = new Node(value);
+    public void enqueue(T value) {
+        Node<T> newNode = new Node<>(value);
 
         if (length == 0) {
             first = newNode;
@@ -69,11 +68,11 @@ public class Queue {
         length++;
     }
 
-    public Node dequeue() {
+    public Node<T> dequeue() {
         if (length == 0)
             return null;
 
-        Node temp = first;
+        Node<T> temp = first;
 
         if (length == 1) {
             first = null;

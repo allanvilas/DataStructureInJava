@@ -1,41 +1,41 @@
 package datastructure.DataStructures;
 
-public class Stack {
+public class Stack<T> {
 
-    private Node top;
+    private Node<T> top;
     private int heigth;
 
-    public class Node {
-        int value;
+    public class Node<T> {
+        T value;
 
-        Node next;
+        Node<T> next;
 
-        Node(int value) {
+        Node(T value) {
             this.value = value;
         }
     }
 
-    public Stack(int value) {
-        Node newNode = new Node(value);
+    public Stack(T value) {
+        Node<T> newNode = new Node<>(value);
         top = newNode;
         heigth = 1;
     }
 
-    public void getTop() {
+    public Node<T> getTop() {
         if (top == null) {
-            System.out.println("Pilha vazia.");
+            return null;
         } else {
-            System.err.println("Top: " + top.value);
+            return top;
         }
     }
 
-    public void getHeigth() {
-        System.out.println("Heigth: " + heigth);
+    public int getHeigth() {
+        return heigth;
     }
 
     public void print() {
         System.out.println("###############");
-        Node temp = top;
+        Node<T> temp = top;
         while (temp != null) {
             System.out.println(temp.value);
             temp = temp.next;
@@ -43,8 +43,8 @@ public class Stack {
         System.out.println("###############");
     }
 
-    public void push(int value) {
-        Node newNode = new Node(value);
+    public void push(T value) {
+        Node<T> newNode = new Node<>(value);
 
         if (heigth == 0) {
             top = newNode;
@@ -55,13 +55,13 @@ public class Stack {
         heigth++;
     }
 
-    public Node pop() {
-        if (heigth == 0)
-            return null;
-        Node temp = top;
+    public boolean pop() {
+        if (heigth == 0) return false;
+        
+        Node<T> temp = top;
         top = top.next;
         temp.next = null;
         heigth--;
-        return temp;
+        return true;
     }
 }
