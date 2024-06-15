@@ -1,32 +1,32 @@
 package datastructure.DataStructures;
 
-public class LinkedList {
-    private Node head;
-    private Node tail;
+public class LinkedList<T> {
+    private Node<T> head;
+    private Node<T> tail;
     private int length;
 
-    public class Node {
-        private String data;
+    public class Node<T> {
+        private T data;
 
-        Node next;
+        Node<T> next;
 
-        Node(String data) {
+        Node(T data) {
             this.data = data;
         }
 
-        public String getData(){
+        public T getData(){
             return this.data;
         }
     }
 
-    public LinkedList(String data) {
+    public LinkedList(T data) {
         length = 1;
-        Node newNode = new Node(data);
+        Node<T> newNode = new Node<T>(data);
         head = newNode;
         tail = newNode;
     }
 
-    public Node getHead() {
+    public Node<T> getHead() {
         if (this.head == null) {
             return null;
         } else {
@@ -34,7 +34,7 @@ public class LinkedList {
         }
     }
 
-    public Node getTail() {
+    public Node<T> getTail() {
         if (this.tail == null) {
             return null;
         } else {
@@ -42,14 +42,14 @@ public class LinkedList {
         }
     }
 
-    public void getLength() {
-        System.out.println("Length: " + this.length);
+    public int getLength() {
+        return this.length;
     }
 
-    public Node get(int index) {
+    public Node<T> get(int index) {
         if (index < 0 || index >= length)
             return null;
-        Node temp = head;
+        Node<T> temp = head;
 
         for (int i = 0; i < index; i++) {
             temp = temp.next;
@@ -63,10 +63,10 @@ public class LinkedList {
         length = 0;
     }
 
-    public Node removeFirst() {
+    public Node<T> removeFirst() {
         if (length == 0)
             return null;
-        Node temp = head;
+        Node<T> temp = head;
         head = head.next;
         temp.next = null;
         length--;
@@ -77,15 +77,15 @@ public class LinkedList {
         return temp;
     }
 
-    public Node remove(int index) {
+    public Node<T> remove(int index) {
         if (index < 0 || index >= length)
             return null;
         if (index == 0)
             return removeFirst();
         if (index == length - 1)
             return removeLast();
-        Node prev = get(index - 1);
-        Node temp = prev.next;
+        Node<T> prev = get(index - 1);
+        Node<T> temp = prev.next;
 
         prev.next = temp.next;
         temp.next = null;
@@ -94,8 +94,8 @@ public class LinkedList {
         return temp;
     }
 
-    public void append(String data) {
-        Node newNode = new Node(data);
+    public void append(T data) {
+        Node<T> newNode = new Node<T>(data);
 
         if (length == 0) {
             head = newNode;
@@ -108,7 +108,7 @@ public class LinkedList {
         length++;
     }
 
-    public boolean insert(int index, String data) {
+    public boolean insert(int index, T data) {
 
         if (index < 0 || index >= length)
             return false;
@@ -122,16 +122,16 @@ public class LinkedList {
             return true;
         }
 
-        Node newNode = new Node(data);
-        Node temp = get(index - 1);
+        Node<T> newNode = new Node<T>(data);
+        Node<T> temp = get(index - 1);
         newNode.next = temp.next;
         temp.next = newNode;
         length++;
         return true;
     }
 
-    public boolean set(int index, String data) {
-        Node temp = get(index);
+    public boolean set(int index, T data) {
+        Node<T> temp = get(index);
 
         if (temp != null) {
             temp.data = data;
@@ -140,9 +140,9 @@ public class LinkedList {
         return false;
     }
 
-    public void prepend(String data) {
+    public void prepend(T data) {
 
-        Node newNode = new Node(data);
+        Node<T> newNode = new Node<T>(data);
 
         if (length == 0) {
             head = newNode;
@@ -155,11 +155,11 @@ public class LinkedList {
         length++;
     }
 
-    public Node removeLast() {
+    public Node<T> removeLast() {
         if (length == 0)
             return null;
-        Node pre = head;
-        Node temp = null;
+        Node<T> pre = head;
+        Node<T> temp = null;
 
         while (pre.next != tail) {
             pre = pre.next;
@@ -180,7 +180,7 @@ public class LinkedList {
     }
 
     public void print() {
-        Node temp = this.head;
+        Node<T> temp = this.head;
         while (temp != null) {
             System.out.println(temp.data);
             temp = temp.next;
