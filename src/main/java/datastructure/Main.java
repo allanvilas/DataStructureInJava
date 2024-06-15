@@ -1,8 +1,6 @@
 package datastructure;
 
-import datastructure.DataStructures.LinkedList;
-import datastructure.DataStructures.Stack;
-import datastructure.DataStructures.Queue;
+import datastructure.DataStructures.*;
 
 public class Main {
     public static void main(String[] args) {

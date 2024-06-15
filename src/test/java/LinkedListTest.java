@@ -1,4 +1,3 @@
-
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -7,21 +6,30 @@ import org.junit.jupiter.api.Nested;
 
 import datastructure.DataStructures.LinkedList;
 
+/**
+ * Test class for the LinkedList data structure.
+ */
 public class LinkedListTest {
 
     LinkedList<String> linkedList = new LinkedList<>("Element 1");
 
+    /**
+     * Test case to fetch an element from the linked list.
+     */
     @Test
-    @DisplayName("Test getting element from linked list")
+    @DisplayName("Test fetching element from linked list")
     public void testFetchingElement() {
         String expected = "Element 1";
         LinkedList<String> list = linkedList;
-        String LikedListValue = list.get(0).getData();
-        assertEquals(expected, LikedListValue);
+        String linkedListValue = list.get(0).getData();
+        assertEquals(expected, linkedListValue);
     }
 
+    /**
+     * Test case to verify if the list returns null after being made empty.
+     */
     @Test
-    @DisplayName("Test if list return null after making it empty.")
+    @DisplayName("Test if list returns null after making it empty.")
     public void testIsListEmpty() {
         LinkedList<Integer> list = new LinkedList<>(10);
         list.makeEmpty();
@@ -29,10 +37,14 @@ public class LinkedListTest {
     }
 
     /**
-     * LinkedListAppendTestsst
+     * Nested class for testing append operations in LinkedList.
      */
     @Nested
     class LinkedListAppendTests {
+        
+        /**
+         * Test case to append a new element to the linked list.
+         */
         @Test
         @DisplayName("Test appending new element")
         public void testAppendingNewValue() {
@@ -44,6 +56,9 @@ public class LinkedListTest {
             assertEquals(value, expected);
         }
 
+        /**
+         * Test case to append a new element when the list length is zero.
+         */
         @Test
         @DisplayName("Test appending new element when length is zero.")
         public void testAppendingWhenLengthIsZero() {
@@ -62,9 +77,12 @@ public class LinkedListTest {
         }
     }
 
+    /**
+     * Test case to get the length of the linked list.
+     */
     @Test
-    @DisplayName("Get the lenght of the linked list")
-    public void testListLenght() {
+    @DisplayName("Get the length of the linked list")
+    public void testListLength() {
         LinkedList<Integer> list = new LinkedList<>(10);
         list.append(5);
         list.append(1);
@@ -73,8 +91,11 @@ public class LinkedListTest {
         assertEquals(4, list.getLength());
     }
 
+    /**
+     * Test case to verify if the correct item is removed from the head of the linked list.
+     */
     @Test
-    @DisplayName("Test if the corret item is removed from head")
+    @DisplayName("Test if the correct item is removed from the head")
     public void testRemoveFirstItem() {
         LinkedList<Integer> list = new LinkedList<>(10);
         list.append(5);
@@ -87,24 +108,34 @@ public class LinkedListTest {
         assertEquals(headData, expected);
     }
 
+    /**
+     * Test case to verify if the correct item is removed from the tail of the linked list.
+     */
     @Test
-    @DisplayName("Test if the corret item is removed from tail")
+    @DisplayName("Test if the correct item is removed from the tail")
     public void testRemoveLastItem() {
         LinkedList<Integer> list = new LinkedList<>(10);
         list.append(5);
         list.append(1);
         list.append(7);
         list.removeLast();
-        Integer headData = list.getTail().getData();
+        Integer tailData = list.getTail().getData();
         Integer expected = 1;
 
-        assertEquals(headData, expected);
+        assertEquals(tailData, expected);
     }
 
+    /**
+     * Nested class for testing remove operations in LinkedList.
+     */
     @Nested
     class LinkedListRemoveTests {
+        
+        /**
+         * Test case to verify if the correct item is removed from a specified position in the linked list.
+         */
         @Test
-        @DisplayName("Test if the corret item is removed from defined position")
+        @DisplayName("Test if the correct item is removed from a defined position")
         public void testRemoveItem() {
             LinkedList<Integer> list = new LinkedList<>(10);
             list.append(5);
@@ -117,9 +148,12 @@ public class LinkedListTest {
             assertEquals(headData, expected);
         }
 
+        /**
+         * Test case to verify if invoking remove(0) removes the first item from the linked list.
+         */
         @Test
-        @DisplayName("Test if when 0 is passed as param the statement will invoke removeFirst")
-        public void testRemoveItemWhenZeroPassedOnParam() {
+        @DisplayName("Test if invoking remove(0) removes the first item")
+        public void testRemoveItemWhenZeroPassedAsParam() {
             LinkedList<Integer> list = new LinkedList<>(10);
             list.append(5);
             list.append(1);
@@ -131,9 +165,12 @@ public class LinkedListTest {
             assertEquals(headData, expected);
         }
 
+        /**
+         * Test case to verify if invoking remove(length-1) removes the last item from the linked list.
+         */
         @Test
-        @DisplayName("Test if the corret item is removed from defined position")
-        public void testRemoveItemWhenLastIndexIsPassedOnParam() {
+        @DisplayName("Test if invoking remove(length-1) removes the last item")
+        public void testRemoveItemWhenLastIndexIsPassedAsParam() {
             LinkedList<Integer> list = new LinkedList<>(10);
             list.append(5);
             list.append(1);
@@ -141,20 +178,24 @@ public class LinkedListTest {
             int removeIndex = list.getLength() - 1;
             list.remove(removeIndex);
 
-            Integer headData = list.getTail().getData();
+            Integer tailData = list.getTail().getData();
             Integer expected = 1;
 
-            assertEquals(headData, expected);
+            assertEquals(tailData, expected);
         }
     }
 
-    @Nested
     /**
-     * LinkedListInsertItemTests
+     * Nested class for testing insert operations in LinkedList.
      */
-    public class LinkedListInsertItemTests {
+    @Nested
+    class LinkedListInsertItemTests {
+        
+        /**
+         * Test case to verify if inserting an item at a defined position in the linked list.
+         */
         @Test
-        @DisplayName("Test if the corret item is removed from defined position")
+        @DisplayName("Test inserting an item at a defined position")
         public void testInsertItem() {
             LinkedList<Integer> list = new LinkedList<>(10);
             list.append(5);
@@ -163,39 +204,51 @@ public class LinkedListTest {
 
             list.insert(2, 15);
 
-            Integer headData = list.get(2).getData();
+            Integer insertedData = list.get(2).getData();
             Integer expected = 15;
 
-            assertEquals(headData, expected);
+            assertEquals(insertedData, expected);
         }
 
+        /**
+         * Test case to verify if false is returned when invalid index values are passed to insert method.
+         */
         @Test
-        @DisplayName("Test if false is returned when -1 or > linked list length value is passed as index param")
-        public void testInsertItemWithWrongValuesAsIndex() {
+        @DisplayName("Test if false is returned when invalid index values are passed")
+        public void testInsertItemWithInvalidIndexValues() {
             LinkedList<Integer> list = new LinkedList<>(10);
             assertFalse(list.insert(-1, 15));
             assertFalse(list.insert(3, 15));
         }
 
+        /**
+         * Test case to verify if true is returned when inserting an item at index 0.
+         */
         @Test
-        @DisplayName("Test if false is returned when zero is passed as Index param")
-        public void testInsertItemWithZeroAsIndexParam() {
+        @DisplayName("Test if true is returned when inserting an item at index 0")
+        public void testInsertItemAtIndexZero() {
             LinkedList<Integer> list = new LinkedList<>(10);
             assertTrue(list.insert(0, 15));
             assertEquals(15, list.getHead().getData());
         }
 
+        /**
+         * Test case to verify if true is returned when inserting an item at the tail (length-1) index.
+         */
         @Test
-        @DisplayName("Test if false is returned when zero is passed as Index param")
-        public void testInsertItemOnTailPassingLengthAsIndex() {
+        @DisplayName("Test if true is returned when inserting an item at the tail index")
+        public void testInsertItemAtTailIndex() {
             LinkedList<Integer> list = new LinkedList<>(10);
             assertTrue(list.insert(list.getLength() - 1, 15));
             assertEquals(10, list.getTail().getData());
         }
     }
 
+    /**
+     * Test case to verify if the correct item is set at a defined position in the linked list.
+     */
     @Test
-    @DisplayName("Test if the corret item is removed from defined position")
+    @DisplayName("Test setting an item at a defined position")
     public void testSetItem() {
         LinkedList<Integer> list = new LinkedList<>(10);
         list.append(5);
@@ -204,15 +257,18 @@ public class LinkedListTest {
 
         list.set(2, 15);
 
-        Integer headData = list.get(2).getData();
+        Integer setData = list.get(2).getData();
         Integer expected = 15;
 
-        assertEquals(headData, expected);
+        assertEquals(setData, expected);
     }
 
+    /**
+     * Test case to verify adding an item at the head of the linked list.
+     */
     @Test
-    @DisplayName("Test if the corret item is removed from defined position")
-    public void testAddingItemOnTail() {
+    @DisplayName("Test adding an item at the head")
+    public void testAddingItemAtHead() {
         LinkedList<Integer> list = new LinkedList<>(10);
         list.append(5);
         list.append(1);
@@ -225,5 +281,4 @@ public class LinkedListTest {
 
         assertEquals(headData, expected);
     }
-
 }
