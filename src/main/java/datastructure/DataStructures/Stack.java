@@ -13,12 +13,20 @@ public class Stack<T> {
         Node(T value) {
             this.value = value;
         }
+        public T getValue() {
+            return this.value;
+        }
     }
 
     public Stack(T value) {
         Node<T> newNode = new Node<>(value);
         top = newNode;
         heigth = 1;
+    }
+
+    public void makeEmpty(){
+        top = null;
+        heigth = 0;
     }
 
     public Node<T> getTop() {
@@ -31,16 +39,6 @@ public class Stack<T> {
 
     public int getHeigth() {
         return heigth;
-    }
-
-    public void print() {
-        System.out.println("###############");
-        Node<T> temp = top;
-        while (temp != null) {
-            System.out.println(temp.value);
-            temp = temp.next;
-        }
-        System.out.println("###############");
     }
 
     public void push(T value) {

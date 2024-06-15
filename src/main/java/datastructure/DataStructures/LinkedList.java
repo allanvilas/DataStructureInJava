@@ -178,12 +178,4 @@ public class LinkedList<T> {
 
         return temp;
     }
-
-    public void print() {
-        Node<T> temp = this.head;
-        while (temp != null) {
-            System.out.println(temp.data);
-            temp = temp.next;
-        }
-    }
 }
