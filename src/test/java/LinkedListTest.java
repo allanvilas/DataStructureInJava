@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 
 import datastructure.DataStructures.LinkedList;
 
@@ -76,20 +77,54 @@ public class LinkedListTest {
 
         assertEquals(headData, expected);
     }
+    
+    @Nested
+    class RemoveTests {
+        @Test
+        @DisplayName("Test if the corret item is removed from defined position")
+        public void testRemoveItem() {
+            LinkedList<Integer> list = new LinkedList<>(10);
+            list.append(5);
+            list.append(1);
+            list.append(7);
+            list.remove(0);
+            Integer headData = list.get(0).getData();
+            Integer expected = 5;
 
-    @Test
-    @DisplayName("Test if the corret item is removed from defined position")
-    public void testRemoveItem() {
-        LinkedList<Integer> list = new LinkedList<>(10);
-        list.append(5);
-        list.append(1);
-        list.append(7);
-        list.remove(0);
-        Integer headData = list.get(0).getData();
-        Integer expected = 5;
+            assertEquals(headData, expected);
+        }
 
-        assertEquals(headData, expected);
+        @Test
+        @DisplayName("Test if when 0 is passed as param the statement will invoke removeFirst")
+        public void testRemoveItemWhenZeroPassedOnParam() {
+            LinkedList<Integer> list = new LinkedList<>(10);
+            list.append(5);
+            list.append(1);
+            list.append(7);
+            list.remove(0);
+            Integer headData = list.getHead().getData();
+            Integer expected = 5;
+
+            assertEquals(headData, expected);
+        }
+
+        @Test
+        @DisplayName("Test if the corret item is removed from defined position")
+        public void testRemoveItemWhenLastIndexIsPassedOnParam() {
+            LinkedList<Integer> list = new LinkedList<>(10);
+            list.append(5);
+            list.append(1);
+            list.append(7);
+            int removeIndex = list.getLength()-1;
+            list.remove(removeIndex);
+
+            Integer headData = list.getTail().getData();
+            Integer expected = 7;
+
+            assertEquals(headData, expected);
+        }
     }
+    
 
     @Test
     @DisplayName("Test if the corret item is removed from defined position")
