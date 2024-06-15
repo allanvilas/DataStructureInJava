@@ -7,15 +7,7 @@ import datastructure.DataStructures.Queue;
  */
 public class QueueTest {
 
-    private Queue<Integer> queue;
-
-    /**
-     * Setup method to initialize the queue with an element before each test case.
-     */
-    @BeforeEach
-    public void setUp() {
-        queue = new Queue<>(1);
-    }
+    private Queue<Integer> queue = new Queue<>(1)
 
     /**
      * Test case to verify the enqueue operation.
