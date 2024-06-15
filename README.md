@@ -20,8 +20,6 @@ To compile and run the code in this repository, you need to have:
 
 3. Run the unit tests to ensure that the data structure implementations are functioning correctly.
 
-## Implemented Data Structures
-
 Here are the data structures implemented in this project:
 
 ### LinkedList
