@@ -1,7 +1,13 @@
-# Java Data Structures
+# Data Structures With Java
+   
+<p align="center">
+   
+   <img src="https://img.shields.io/badge/Java-8%2B-blue" alt="Java Version"/>
+   <img src="https://img.shields.io/badge/license-MIT-green" alt="Project License"/>
+   <a href="https://github.com/allanvilas/DataStructureInJava/actions" target="_blank"><img src="https://github.com/allanvilas/DataStructureInJava/workflows/Java%20CI%20with%20Maven/badge.svg" alt="Build Status"></a>
+   <img src="https://img.shields.io/badge/Coverage-83.33%25-green" alt="Project License"/>
+</p>
 
-![Java](https://img.shields.io/badge/Java-8%2B-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
 
 This repository contains Java implementations of basic data structures, including LinkedList, Stack, Queue, and Tree. The implementations are intended for educational purposes and can be used as a reference for studying and practicing data structures in Java.
 
