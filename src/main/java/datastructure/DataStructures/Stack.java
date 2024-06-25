@@ -70,7 +70,7 @@ public class Stack<T> {
      * 
      * @return The top node of the stack, or null if the stack is empty.
      */
-    public Node<T> getTop() {
+    public Node<T> peek() {
         return top;
     }
 
