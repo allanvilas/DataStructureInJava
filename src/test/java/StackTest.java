@@ -33,7 +33,7 @@ public class StackTest {
     @DisplayName("Instance and get initialization node from stack")
     public void TestNewStackInstance() {
         Stack<Integer> stack = this.stack;
-        assertEquals(10, stack.getTop().getValue());
+        assertEquals(10, stack.peek().getValue());
         assertEquals(1, stack.size());
     }
 
@@ -45,7 +45,7 @@ public class StackTest {
     public void testMakingStackEmpty() {
         Stack<Integer> stack = this.stack;
         stack.makeEmpty();
-        assertNull(stack.getTop());
+        assertNull(stack.peek());
         assertEquals(0, stack.size());
     }
 
@@ -91,7 +91,7 @@ public class StackTest {
             stack.push(5);
 
             // Check if the new item is at the top of the stack
-            assertEquals(5, stack.getTop().getValue());
+            assertEquals(5, stack.peek().getValue());
 
             // Check if the stack height is 1
             assertEquals(1, stack.size());
