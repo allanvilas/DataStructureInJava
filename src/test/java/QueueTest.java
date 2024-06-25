@@ -72,6 +72,32 @@ public class QueueTest {
         }
     }
 
+    @Nested
+    class TestReturningPeekNode {
+         /**
+         * Test if returns the element at the back of the queue.
+         */
+        @Test
+        @DisplayName("Test if returns the element at the front of the queue")
+        public void testReturnLastElement() {
+            Queue<Integer> testQueue = new Queue<>(1);
+            testQueue.enqueue(2);
+            testQueue.enqueue(3);
+            assertEquals(1, testQueue.peek().value);
+        }
+
+        /**
+         * Test if returns null when trying to reach a null queue.
+         */
+        @Test
+        @DisplayName("Test if returns null at the front of the queue")
+        public void testIfWhenQueueIsEmptyBottomReturnsNull() {
+            Queue<Integer> testQueue = new Queue<>(1);
+            testQueue.dequeue();
+            assertNull(testQueue.peek());
+        }
+    }
+
     /** 
      * Test if returns true when queue is empty.
      */
