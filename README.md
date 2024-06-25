@@ -55,9 +55,9 @@ Here are the data structures implemented in this project:
 - **makeEmpty()**: Removes all elements from the stack.
 - **isEmpty()**: Checks if the stack is empty.
 - **size()**: Returns the number of elements in the stack.
-
-- **Future Implementations**:
 - **peek()**: Returns the element at the top of the stack without removing it.
+  
+- **Future Implementations**:
 - **contains(T value)**: Checks if an element exists in the stack.
 
 ### Queue
