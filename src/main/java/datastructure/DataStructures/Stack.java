@@ -79,7 +79,7 @@ public class Stack<T> {
      * 
      * @return The height of the stack.
      */
-    public int getHeigth() {
+    public int size() {
         return height;
     }
 

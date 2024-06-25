@@ -18,11 +18,23 @@ public class StackTest {
      * Test case: Instance and get initialization node from stack
      */
     @Test
+    @DisplayName("Test if size() returns stacks right size.")
+    public void TestStackSize() {
+        Stack<Integer> stack = this.stack;
+        
+        // Returns stack size
+        assertEquals(1, stack.size());
+    }
+
+    /**
+     * Test case: Instance and get initialization node from stack
+     */
+    @Test
     @DisplayName("Instance and get initialization node from stack")
     public void TestNewStackInstance() {
         Stack<Integer> stack = this.stack;
         assertEquals(10, stack.getTop().getValue());
-        assertEquals(1, stack.getHeigth());
+        assertEquals(1, stack.size());
     }
 
     /**
@@ -34,7 +46,7 @@ public class StackTest {
         Stack<Integer> stack = this.stack;
         stack.makeEmpty();
         assertNull(stack.getTop());
-        assertEquals(0, stack.getHeigth());
+        assertEquals(0, stack.size());
     }
 
     /**
@@ -52,11 +64,11 @@ public class StackTest {
             Stack<Integer> stack = new Stack<>(10);
 
             // Check if the stack initially has one item
-            assertEquals(1, stack.getHeigth());
+            assertEquals(1, stack.size());
 
             // Check if isEmpty returns false
             assertFalse( stack.isEmpty());
-            
+
             // Empty the stack
             stack.makeEmpty();
 
@@ -82,7 +94,7 @@ public class StackTest {
             assertEquals(5, stack.getTop().getValue());
 
             // Check if the stack height is 1
-            assertEquals(1, stack.getHeigth());
+            assertEquals(1, stack.size());
         }
     }
 
