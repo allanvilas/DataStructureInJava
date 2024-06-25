@@ -116,12 +116,29 @@ public class Stack<T> {
         return true;
     }
 
+    /**
+     * Make a linear search inside the stack.
+     * 
+     * @param value to be search value.
+     * @return retunrs the first module containg the searched value.
+     */
     public Node<T> contains(T value) {
+        // check if the stack is empt
         if(top == null) return null;
 
-        Node tempNode = this.top;
-        int stackSize = this.size();
+        // Instace the top node to start the search
+        Node<T> tempNode = this.top;
 
-
+        for (int index = 0; index < height; index++) {
+            if(tempNode.value == value) {
+                // if find the value retunr the node
+                return tempNode;
+            } else {
+                // jump to previous node in the stack.
+                tempNode = tempNode.previous;
+            }
+        }
+        // if dont find returns null.
+        return null;
     }
 }

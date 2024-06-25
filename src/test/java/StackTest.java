@@ -142,7 +142,8 @@ public class StackTest {
             stack.push(12);
 
             // assert if the values is findend.
-            assertEquals(5, stack.contains(5).value);
+            assertEquals(5, stack.contains(5).getValue());
+
         }
 
     }
