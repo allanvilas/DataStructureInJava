@@ -7,14 +7,13 @@ import datastructure.DataStructures.Queue;
  */
 public class QueueTest {
 
-    private Queue<Integer> queue = new Queue<>(1);
-
     /**
      * Test case to verify the enqueue operation.
      */
     @Test
     @DisplayName("Test enqueue operation")
     public void testEnqueue() {
+        Queue<Integer> queue = new Queue<>(1);
         queue.enqueue(2);
         assertEquals(2, queue.bottom().value);
         assertEquals(2, queue.size());
@@ -26,6 +25,7 @@ public class QueueTest {
     @Test
     @DisplayName("Test dequeue operation")
     public void testDequeue() {
+        Queue<Integer> queue = new Queue<>(1);
         queue.enqueue(2);
         assertEquals(1, queue.dequeue().value);
         assertEquals(2, queue.dequeue().value);
@@ -39,6 +39,7 @@ public class QueueTest {
     @Test
     @DisplayName("Test dequeue empty queue")
     public void testDequeueEmpty() {
+        Queue<Integer> queue = new Queue<>(1);
         queue.dequeue();
         assertNull(queue.dequeue());
         assertEquals(0, queue.size());
@@ -53,10 +54,10 @@ public class QueueTest {
         @Test
         @DisplayName("Test if returns the element at the front of the queue")
         public void testReturnFirstElement() {
-            Queue<Integer> testQueue = queue;
+            Queue<Integer> testQueue = new Queue<>(1);
             testQueue.enqueue(2);
             testQueue.enqueue(3);
-            assertEquals(3, queue.bottom().value);
+            assertEquals(3, testQueue.bottom().value);
         }
 
         /**
@@ -65,9 +66,9 @@ public class QueueTest {
         @Test
         @DisplayName("Test if returns null at the front of the queue")
         public void testIfWhenQueueIsEmptyBottomReturnsNull() {
-            Queue<Integer> testQueue = queue;
+            Queue<Integer> testQueue = new Queue<>(1);
             testQueue.dequeue();
-            assertNull(queue.bottom());
+            assertNull(testQueue.bottom());
         }
     }
 
@@ -77,10 +78,10 @@ public class QueueTest {
     @Test
     @DisplayName("Test if returns true when queue is empty")
     public void testEmptyQueue() {
-        Queue<Integer> testQueue = queue;
-        assertFalse(queue.isEmpty());
+        Queue<Integer> testQueue = new Queue<>(1);
+        assertFalse(testQueue.isEmpty());
         testQueue.dequeue();
-        assertTrue(queue.isEmpty());
+        assertTrue(testQueue.isEmpty());
     }
 
     /** 
@@ -89,8 +90,39 @@ public class QueueTest {
     @Test
     @DisplayName("Test if size method returns rigth value.")
     public void testQueueSize() {
-        Queue<Integer> testQueue = queue;
+        Queue<Integer> testQueue = new Queue<>(1);
         assertEquals(1, testQueue.size());
     }
+
+    @Nested
+    class TestContainsMethod {
+        /** 
+         * Test returning a first node with passed value.
+         */
+        @Test
+        @DisplayName("Test returning a first node with passed value.")
+        public void testReturningNodeThatContains() {
+            Queue<Integer> testQueue = new Queue<>(1);
+            testQueue.enqueue(25);
+            testQueue.enqueue(35);
+            testQueue.enqueue(12);
+            assertEquals(35, testQueue.contains(35).value);
+        }
+
+        /** 
+         * Test returning a null when passed value don't exists.
+         */
+        @Test
+        @DisplayName("Test returning a null when passed value don't exists.")
+        public void testReturningNullWhenQueueDontContainsValue() {
+            Queue<Integer> testQueue = new Queue<>(1);
+            testQueue.enqueue(25);
+            testQueue.enqueue(35);
+            testQueue.enqueue(12);
+            assertNull(testQueue.contains(22));
+        }
+
+    }
+    
     
 }

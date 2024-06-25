@@ -48,6 +48,7 @@ public class Queue<T> {
         }
     }
 
+
     /**
      * Retrieves true if the queue is empty.
      *
@@ -122,5 +123,28 @@ public class Queue<T> {
         }
         length--;
         return temp;
+    }
+
+
+    /**
+     * Return the first node that contains the value.
+     *
+     * @return The first ocurrence node, or null if the queue is empty or if the value don't exists.
+     */
+    public Node<T> contains(T value) {
+        if (length == 0)
+            return null;
+
+        Node<T> tempNode = first;
+
+        for (int j = 0; j < length; j++) {
+            if (tempNode.value == value) {
+                return tempNode;                
+            } else {
+                tempNode = tempNode.next;
+            }
+        }
+
+        return null;
     }
 }
