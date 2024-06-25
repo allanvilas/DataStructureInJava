@@ -54,11 +54,14 @@ public class StackTest {
             // Check if the stack initially has one item
             assertEquals(1, stack.getHeigth());
 
+            // Check if isEmpty returns false
+            assertFalse( stack.isEmpty());
+            
             // Empty the stack
             stack.makeEmpty();
 
             // Check if the stack is empty
-            assertEquals(0, stack.getHeigth());
+            assertTrue( stack.isEmpty());
         }
 
         /**

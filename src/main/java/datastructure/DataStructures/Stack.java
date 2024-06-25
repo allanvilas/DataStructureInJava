@@ -55,6 +55,17 @@ public class Stack<T> {
     }
 
     /**
+     * Method to return if the stack is empty.
+     */
+    public boolean isEmpty() {
+        if(top == null){
+            return true;
+        } else { 
+            return false;
+        }
+    }
+
+    /**
      * Method to get the top node of the stack.
      * 
      * @return The top node of the stack, or null if the stack is empty.
