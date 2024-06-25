@@ -16,7 +16,7 @@ public class QueueTest {
     @DisplayName("Test enqueue operation")
     public void testEnqueue() {
         queue.enqueue(2);
-        assertEquals(2, queue.getLast().value);
+        assertEquals(2, queue.bottom().value);
         assertEquals(2, queue.getLength());
     }
 
@@ -43,4 +43,31 @@ public class QueueTest {
         assertNull(queue.dequeue());
         assertEquals(0, queue.getLength());
     }
+
+    @Nested
+    class TestReturningBottomNode {
+         /**
+         * Test if returns the element at the front of the queue.
+         */
+        @Test
+        @DisplayName("Test if returns the element at the front of the queue")
+        public void testReturnFirstElement() {
+            Queue<Integer> testQueue = queue;
+            testQueue.enqueue(2);
+            testQueue.enqueue(3);
+            assertEquals(3, queue.bottom().value);
+        }
+
+        /**
+         * Test if returns null at the front of the queue.
+         */
+        @Test
+        @DisplayName("Test if returns null at the front of the queue")
+        public void testIfWhenQueueIsEmptyBottomReturnsNull() {
+            Queue<Integer> testQueue = queue;
+            testQueue.dequeue();
+            assertNull(queue.bottom());
+        }
+    }
+    
 }

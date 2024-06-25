@@ -40,7 +40,7 @@ public class Queue<T> {
      *
      * @return The first node in the queue, or null if the queue is empty.
      */
-    public Node<T> getFirst() {
+    public Node<T> peek() {
         if (first != null) {
             return first;
         } else {
@@ -53,7 +53,7 @@ public class Queue<T> {
      *
      * @return The last node in the queue, or null if the queue is empty.
      */
-    public Node<T> getLast() {
+    public Node<T> bottom() {
         if (last != null) {
             return last;
         } else {
