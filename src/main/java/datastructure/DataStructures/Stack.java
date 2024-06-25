@@ -14,11 +14,11 @@ public class Stack<T> {
      * Inner class Node<T>
      * 
      * Represents a node in the stack. Each node holds a value of type T and a reference
-     * to the next node in the stack.
+     * to the previous node in the stack.
      */
     public class Node<T> {
         T value;
-        Node<T> next;
+        Node<T> previous;
 
         /**
          * Node constructor initializes a node with a given value.
@@ -94,7 +94,7 @@ public class Stack<T> {
         if (height == 0) {
             top = newNode;
         } else {
-            newNode.next = top;
+            newNode.previous = top;
             top = newNode;
         }
         height++;
@@ -110,9 +110,18 @@ public class Stack<T> {
             return false;
 
         Node<T> temp = top;
-        top = top.next;
-        temp.next = null;
+        top = top.previous;
+        temp.previous = null;
         height--;
         return true;
+    }
+
+    public Node<T> contains(T value) {
+        if(top == null) return null;
+
+        Node tempNode = this.top;
+        int stackSize = this.size();
+
+
     }
 }
