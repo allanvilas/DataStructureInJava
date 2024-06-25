@@ -53,10 +53,10 @@ Here are the data structures implemented in this project:
 - **push(T value)**: Adds an element to the top of the stack.
 - **pop()**: Removes and returns the element from the top of the stack.
 - **makeEmpty()**: Removes all elements from the stack.
+- **isEmpty()**: Checks if the stack is empty.
 
 - **Future Implementations**:
 - **peek()**: Returns the element at the top of the stack without removing it.
-- **isEmpty()**: Checks if the stack is empty.
 - **size()**: Returns the number of elements in the stack.
 - **contains(T value)**: Checks if an element exists in the stack.
 
