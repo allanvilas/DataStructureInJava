@@ -66,10 +66,10 @@ Here are the data structures implemented in this project:
 - **enqueue(T value)**: Adds an element to the end of the queue.
 - **dequeue()**: Removes and returns the element from the front of the queue.
 - **makeEmpty()**: Removes all elements from the queue.
-
-- **Future Implementations**:
 - **peek()**: Returns the element at the front of the queue without removing it.
 - **isEmpty()**: Checks if the queue is empty.
+  
+- **Future Implementations**:
 - **size()**: Returns the number of elements in the queue.
 - **contains(T value)**: Checks if an element exists in the queue.
 

@@ -69,5 +69,17 @@ public class QueueTest {
             assertNull(queue.bottom());
         }
     }
+
+    /** 
+     * Test if returns true when queue is empty.
+     */
+    @Test
+    @DisplayName("Test if returns true when queue is empty")
+    public void testEmptyQueue() {
+        Queue<Integer> testQueue = queue;
+        assertFalse(queue.isEmpty());
+        testQueue.dequeue();
+        assertTrue(queue.isEmpty());
+    }
     
 }

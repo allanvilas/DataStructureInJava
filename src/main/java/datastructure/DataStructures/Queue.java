@@ -49,6 +49,19 @@ public class Queue<T> {
     }
 
     /**
+     * Retrieves true if the queue is empty.
+     *
+     * @return true if the queue is empty.
+     */
+    public boolean isEmpty() {
+        if (first == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * Retrieves the last node in the queue.
      *
      * @return The last node in the queue, or null if the queue is empty.
