@@ -17,7 +17,7 @@ public class QueueTest {
     public void testEnqueue() {
         queue.enqueue(2);
         assertEquals(2, queue.bottom().value);
-        assertEquals(2, queue.getLength());
+        assertEquals(2, queue.size());
     }
 
     /**
@@ -30,7 +30,7 @@ public class QueueTest {
         assertEquals(1, queue.dequeue().value);
         assertEquals(2, queue.dequeue().value);
         queue.dequeue();
-        assertEquals(0, queue.getLength());
+        assertEquals(0, queue.size());
     }
 
     /**
@@ -41,7 +41,8 @@ public class QueueTest {
     public void testDequeueEmpty() {
         queue.dequeue();
         assertNull(queue.dequeue());
-        assertEquals(0, queue.getLength());
+        assertEquals(0, queue.size());
+        assertTrue(queue.isEmpty());
     }
 
     @Nested
@@ -80,6 +81,16 @@ public class QueueTest {
         assertFalse(queue.isEmpty());
         testQueue.dequeue();
         assertTrue(queue.isEmpty());
+    }
+
+    /** 
+     * Test if size method returns rigth value.
+     */
+    @Test
+    @DisplayName("Test if size method returns rigth value.")
+    public void testQueueSize() {
+        Queue<Integer> testQueue = queue;
+        assertEquals(1, testQueue.size());
     }
     
 }

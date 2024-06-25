@@ -79,7 +79,7 @@ public class Queue<T> {
      *
      * @return The current number of elements in the queue.
      */
-    public int getLength() {
+    public int size() {
         return length;
     }
 

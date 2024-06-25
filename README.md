@@ -68,9 +68,9 @@ Here are the data structures implemented in this project:
 - **makeEmpty()**: Removes all elements from the queue.
 - **peek()**: Returns the element at the front of the queue without removing it.
 - **isEmpty()**: Checks if the queue is empty.
+- **size()**: Returns the number of elements in the queue.
   
 - **Future Implementations**:
-- **size()**: Returns the number of elements in the queue.
 - **contains(T value)**: Checks if an element exists in the queue.
 
 ### Tree
