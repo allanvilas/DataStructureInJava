@@ -124,5 +124,26 @@ public class StackTest {
             stack.makeEmpty();
             assertFalse(stack.pop());
         }
-    }    
+    }
+    
+    @Nested
+    class TestStackIfContains {
+
+        /** 
+         * Test if stacks contains the value passed as param.
+         */
+        @Test
+        @DisplayName("Test if stacks contains the value passed as param.")
+        public void TestIfStackContainsSpecificValue() {
+            Stack<Integer> stack = new Stack<Integer>(10);
+            // add some values to stack.
+            stack.push(15);
+            stack.push(5);
+            stack.push(12);
+
+            // assert if the values is findend.
+            assertEquals(5, stack.contains(5).value);
+        }
+
+    }
 }
