@@ -201,7 +201,7 @@ public class LinkedList<T> implements linearStructure<T> {
      * @param data The data to be stored in the new node.
      */
     
-    public void prepend(T data) {
+    public void addFirst(T data) {
         Node<T> newNode = new Node<>(data);
         if (length == 0) {
             head = newNode;

@@ -279,7 +279,7 @@ public class LinkedListTest {
         list.add(1);
         list.add(7);
 
-        list.prepend(15);
+        list.addFirst(15);
 
         Integer headData = list.get(0).getValue();
         Integer expected = 15;
