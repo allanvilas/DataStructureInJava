@@ -1,6 +1,8 @@
 package datastructure.DataStructures;
+import datastructure.dataStructureInterface.linearStructure;
+import datastructure.dataStructureInterface.nodeInterface;
 
-public class LinkedList<T> {
+public class LinkedList<T> implements linearStructure<T> {
     private Node<T> head;
     private Node<T> tail;
     private int length;
@@ -8,16 +10,16 @@ public class LinkedList<T> {
     /**
      * Inner class representing a node in the linked list.
      */
-    public class Node<T> {
-        private T data;
+    public class Node<T> implements nodeInterface<T> {
+        private T value;
         Node<T> next;
 
-        Node(T data) {
-            this.data = data;
+        Node(T value) {
+            this.value = value;
         }
-
-        public T getData() {
-            return this.data;
+        @Override
+        public T getValue() {
+            return this.value;
         }
     }
 
@@ -36,7 +38,8 @@ public class LinkedList<T> {
      * Retrieves the head node of the linked list.
      * @return The head node.
      */
-    public Node<T> getHead() {
+    @Override
+    public Node<T> getFirst() {
         return head;
     }
 
@@ -44,7 +47,8 @@ public class LinkedList<T> {
      * Retrieves the tail node of the linked list.
      * @return The tail node.
      */
-    public Node<T> getTail() {
+    @Override
+    public Node<T> getLast() {
         return tail;
     }
 
@@ -52,7 +56,8 @@ public class LinkedList<T> {
      * Returns the current length of the linked list.
      * @return The length of the linked list.
      */
-    public int getLength() {
+    @Override
+    public int size() {
         return length;
     }
 
@@ -61,6 +66,7 @@ public class LinkedList<T> {
      * @param index The index of the node to retrieve.
      * @return The node at the specified index, or null if the index is out of bounds.
      */
+    @Override
     public Node<T> get(int index) {
         if (index < 0 || index >= length)
             return null;
@@ -74,16 +80,28 @@ public class LinkedList<T> {
     /**
      * Empties the linked list.
      */
-    public void makeEmpty() {
+    @Override
+    public void clear() {
         head = null;
         tail = null;
         length = 0;
     }
 
     /**
+     * Return true if the linkedList is empty
+     */
+    @Override
+    public boolean isEmpty() {
+        if(head == null && tail == null) return true;
+        return false;
+    }
+
+
+    /**
      * Removes and returns the first node of the linked list.
      * @return The removed node, or null if the linked list is empty.
      */
+    @Override
     public Node<T> removeFirst() {
         if (length == 0)
             return null;
@@ -103,6 +121,7 @@ public class LinkedList<T> {
      * @param index The index of the node to remove.
      * @return The removed node, or null if the index is out of bounds.
      */
+    @Override
     public Node<T> remove(int index) {
         if (index < 0 || index >= length)
             return null;
@@ -122,7 +141,8 @@ public class LinkedList<T> {
      * Appends a new node with the specified data to the end of the linked list.
      * @param data The data to be stored in the new node.
      */
-    public void append(T data) {
+    @Override
+    public void add(T data) {
         Node<T> newNode = new Node<>(data);
         if (length == 0) {
             head = newNode;
@@ -140,18 +160,19 @@ public class LinkedList<T> {
      * @param data The data to be stored in the new node.
      * @return true if the insertion was successful, false otherwise.
      */
-    public boolean insert(int index, T data) {
+    @Override
+    public boolean insert(T value,int index) {
         if (index < 0 || index > length)
             return false;
         if (index == 0) {
-            prepend(data);
+            prepend(value);
             return true;
         }
         if (index == length) {
-            append(data);
+            add(value);
             return true;
         }
-        Node<T> newNode = new Node<>(data);
+        Node<T> newNode = new Node<>(value);
         Node<T> temp = get(index - 1);
         newNode.next = temp.next;
         temp.next = newNode;
@@ -165,10 +186,11 @@ public class LinkedList<T> {
      * @param data The new data to be stored in the node.
      * @return true if the operation was successful, false otherwise.
      */
-    public boolean set(int index, T data) {
+    @Override
+    public boolean set(T value,int index) {
         Node<T> temp = get(index);
         if (temp != null) {
-            temp.data = data;
+            temp.value = value;
             return true;
         }
         return false;
@@ -178,6 +200,7 @@ public class LinkedList<T> {
      * Prepends a new node with the specified data to the beginning of the linked list.
      * @param data The data to be stored in the new node.
      */
+    
     public void prepend(T data) {
         Node<T> newNode = new Node<>(data);
         if (length == 0) {
@@ -194,6 +217,7 @@ public class LinkedList<T> {
      * Removes and returns the last node of the linked list.
      * @return The removed node, or null if the linked list is empty.
      */
+    @Override
     public Node<T> removeLast() {
         if (length == 0)
             return null;
@@ -220,9 +244,11 @@ public class LinkedList<T> {
         System.out.println("##############");
         Node<T> temp = head;
         while (temp != null) {
-            System.out.println(temp.data);
+            System.out.println(temp.value);
             temp = temp.next;
         }
         System.out.println("##############");
     }
+
+    
 }

@@ -30,7 +30,40 @@ Here are the data structures implemented in this project:
 
 ### LinkedList
 
-- **Features**:
+```mermaid
+---
+title: Linked List Example
+---
+
+classDiagram
+direction RL
+Node --o LinkedList : Head
+Node --o Node : Next
+Node --o LinkedList : Tail
+
+class LinkedList {
+   -Node~T~ head
+   -Node~T~ tail
+   -int length 
+   +Node~T~ get(int index)
+   +void makeEmpty()
+   +void append(T data)
+   +Node~T~ removeFirst()
+   +Node~T~ remove(int index)
+   +void insert(int index, T data)
+   +void set(int index, T data)
+   +void prepend(T data)
+   +Node~T~ removeLast()
+}
+
+class Node {
+   -T data
+   -Node~T~ next
+   +T getData()
+} 
+```
+
+#### Features:
 - **get(int index)**: Returns the element at the specified index.
 - **makeEmpty()**: Removes all elements from the list.
 - **append(T data)**: Adds an element to the end of the list.
@@ -41,7 +74,7 @@ Here are the data structures implemented in this project:
 - **prepend(T data)**: Adds an element to the beginning of the list.
 - **removeLast()**: Removes the last element from the list.
 
-- **Future Implementations**:
+#### Future Implementations:
 - **contains(T data)**: Checks if an element exists in the list.
 - **reverse()**: Reverses the order of elements in the list.
 - **indexOf(T data)**: Returns the index of the specified element.

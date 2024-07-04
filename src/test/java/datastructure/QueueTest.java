@@ -1,3 +1,4 @@
+package datastructure;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import datastructure.DataStructures.Queue;
