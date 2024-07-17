@@ -46,6 +46,7 @@ public class Queue<T> implements LinearStructure<T> {
         first = null;
         last = null;
     }
+    
     /**
      * Retrieves the first node in the queue.
      *

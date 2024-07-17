@@ -112,6 +112,18 @@ public class QueueTest {
     }
 
     /** 
+     * Test if clear wip the queue.
+     */
+    @Test
+    @DisplayName("Test if clear wip the queue")
+    public void testWipingQueue() {
+        Queue<Integer> testQueue = new Queue<>(1);
+        assertFalse(testQueue.isEmpty());
+        testQueue.clear();
+        assertTrue(testQueue.isEmpty());
+    }
+
+    /** 
      * Test if size method returns rigth value.
      */
     @Test
