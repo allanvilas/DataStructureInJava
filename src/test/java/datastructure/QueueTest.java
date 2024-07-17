@@ -9,14 +9,14 @@ import datastructure.DataStructures.Queue;
 public class QueueTest {
 
     /**
-     * Test case to verify the enqueue operation.
+     * Test case to verify the add operation.
      */
     @Test
-    @DisplayName("Test enqueue operation")
-    public void testEnqueue() {
+    @DisplayName("Test add operation")
+    public void testadd() {
         Queue<Integer> queue = new Queue<>(1);
-        queue.enqueue(2);
-        assertEquals(2, queue.bottom().value);
+        queue.add(2);
+        assertEquals(2, queue.getLast().value);
         assertEquals(2, queue.size());
     }
 
@@ -27,7 +27,7 @@ public class QueueTest {
     @DisplayName("Test dequeue operation")
     public void testDequeue() {
         Queue<Integer> queue = new Queue<>(1);
-        queue.enqueue(2);
+        queue.add(2);
         assertEquals(1, queue.dequeue().value);
         assertEquals(2, queue.dequeue().value);
         queue.dequeue();
@@ -56,9 +56,9 @@ public class QueueTest {
         @DisplayName("Test if returns the element at the front of the queue")
         public void testReturnFirstElement() {
             Queue<Integer> testQueue = new Queue<>(1);
-            testQueue.enqueue(2);
-            testQueue.enqueue(3);
-            assertEquals(3, testQueue.bottom().value);
+            testQueue.add(2);
+            testQueue.add(3);
+            assertEquals(3, testQueue.getLast().value);
         }
 
         /**
@@ -66,10 +66,10 @@ public class QueueTest {
          */
         @Test
         @DisplayName("Test if returns null at the front of the queue")
-        public void testIfWhenQueueIsEmptyBottomReturnsNull() {
+        public void testIfWhaddIsEmptyBottomReturnsNull() {
             Queue<Integer> testQueue = new Queue<>(1);
             testQueue.dequeue();
-            assertNull(testQueue.bottom());
+            assertNull(testQueue.getLast());
         }
     }
 
@@ -82,8 +82,8 @@ public class QueueTest {
         @DisplayName("Test if returns the element at the front of the queue")
         public void testReturnLastElement() {
             Queue<Integer> testQueue = new Queue<>(1);
-            testQueue.enqueue(2);
-            testQueue.enqueue(3);
+            testQueue.add(2);
+            testQueue.add(3);
             assertEquals(1, testQueue.peek().value);
         }
 
@@ -92,7 +92,7 @@ public class QueueTest {
          */
         @Test
         @DisplayName("Test if returns null at the front of the queue")
-        public void testIfWhenQueueIsEmptyBottomReturnsNull() {
+        public void testIfWhaddIsEmptyBottomReturnsNull() {
             Queue<Integer> testQueue = new Queue<>(1);
             testQueue.dequeue();
             assertNull(testQueue.peek());
@@ -130,9 +130,9 @@ public class QueueTest {
         @DisplayName("Test returning a first node with passed value.")
         public void testReturningNodeThatContains() {
             Queue<Integer> testQueue = new Queue<>(1);
-            testQueue.enqueue(25);
-            testQueue.enqueue(35);
-            testQueue.enqueue(12);
+            testQueue.add(25);
+            testQueue.add(35);
+            testQueue.add(12);
             assertEquals(35, testQueue.contains(35).value);
         }
 
@@ -141,11 +141,11 @@ public class QueueTest {
          */
         @Test
         @DisplayName("Test returning a null when passed value don't exists.")
-        public void testReturningNullWhenQueueDontContainsValue() {
+        public void testReturningNullWhaddDontContainsValue() {
             Queue<Integer> testQueue = new Queue<>(1);
-            testQueue.enqueue(25);
-            testQueue.enqueue(35);
-            testQueue.enqueue(12);
+            testQueue.add(25);
+            testQueue.add(35);
+            testQueue.add(12);
             assertNull(testQueue.contains(22));
         }
 

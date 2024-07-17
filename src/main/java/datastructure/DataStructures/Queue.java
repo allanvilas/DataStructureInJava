@@ -90,7 +90,7 @@ public class Queue<T> implements LinearStructure<T> {
      *
      * @param value The value to be added to the queue.
      */
-    public void enqueue(T value) {
+    public void add(T value) {
         Node<T> newNode = new Node<>(value);
 
         if (length == 0) {
