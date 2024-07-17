@@ -21,28 +21,28 @@ public class QueueTest {
     }
 
     /**
-     * Test case to verify the dequeue operation.
+     * Test case to verify the removeLast operation.
      */
     @Test
-    @DisplayName("Test dequeue operation")
-    public void testDequeue() {
+    @DisplayName("Test removeLast operation")
+    public void testremoveLast() {
         Queue<Integer> queue = new Queue<>(1);
         queue.add(2);
-        assertEquals(1, queue.dequeue().value);
-        assertEquals(2, queue.dequeue().value);
-        queue.dequeue();
+        assertEquals(1, queue.removeLast().value);
+        assertEquals(2, queue.removeLast().value);
+        queue.removeLast();
         assertEquals(0, queue.size());
     }
 
     /**
-     * Test case to verify dequeue operation on an empty queue.
+     * Test case to verify removeLast operation on an empty queue.
      */
     @Test
-    @DisplayName("Test dequeue empty queue")
-    public void testDequeueEmpty() {
+    @DisplayName("Test removeLast empty queue")
+    public void testremoveLastEmpty() {
         Queue<Integer> queue = new Queue<>(1);
-        queue.dequeue();
-        assertNull(queue.dequeue());
+        queue.removeLast();
+        assertNull(queue.removeLast());
         assertEquals(0, queue.size());
         assertTrue(queue.isEmpty());
     }
@@ -68,7 +68,7 @@ public class QueueTest {
         @DisplayName("Test if returns null at the front of the queue")
         public void testIfWhaddIsEmptyBottomReturnsNull() {
             Queue<Integer> testQueue = new Queue<>(1);
-            testQueue.dequeue();
+            testQueue.removeLast();
             assertNull(testQueue.getLast());
         }
     }
@@ -94,7 +94,7 @@ public class QueueTest {
         @DisplayName("Test if returns null at the front of the queue")
         public void testIfWhaddIsEmptyBottomReturnsNull() {
             Queue<Integer> testQueue = new Queue<>(1);
-            testQueue.dequeue();
+            testQueue.removeLast();
             assertNull(testQueue.peek());
         }
     }
@@ -107,7 +107,7 @@ public class QueueTest {
     public void testEmptyQueue() {
         Queue<Integer> testQueue = new Queue<>(1);
         assertFalse(testQueue.isEmpty());
-        testQueue.dequeue();
+        testQueue.removeLast();
         assertTrue(testQueue.isEmpty());
     }
 

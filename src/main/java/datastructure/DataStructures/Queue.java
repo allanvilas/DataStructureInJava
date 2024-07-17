@@ -109,7 +109,7 @@ public class Queue<T> implements LinearStructure<T> {
      *
      * @return The removed node, or null if the queue is empty.
      */
-    public Node<T> dequeue() {
+    public Node<T> removeLast() {
         if (length == 0)
             return null;
 
