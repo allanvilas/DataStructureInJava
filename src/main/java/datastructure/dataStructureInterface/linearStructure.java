@@ -1,7 +1,7 @@
 
 package datastructure.dataStructureInterface;
 
-public interface linearStructure<T> {
+public interface LinearStructure<T> {
     int size();
     void clear();
     boolean isEmpty();

@@ -1,5 +1,5 @@
 package datastructure.dataStructureInterface;
 
-public interface nodeInterface<T> {
+public interface NodeInterface<T> {
     T getValue();
 }

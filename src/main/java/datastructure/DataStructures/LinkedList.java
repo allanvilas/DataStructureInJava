@@ -1,8 +1,8 @@
 package datastructure.DataStructures;
-import datastructure.dataStructureInterface.linearStructure;
-import datastructure.dataStructureInterface.nodeInterface;
+import datastructure.dataStructureInterface.LinearStructure;
+import datastructure.dataStructureInterface.NodeInterface;
 
-public class LinkedList<T> implements linearStructure<T> {
+public class LinkedList<T> implements LinearStructure<T> {
     private Node<T> head;
     private Node<T> tail;
     private int length;
@@ -10,7 +10,7 @@ public class LinkedList<T> implements linearStructure<T> {
     /**
      * Inner class representing a node in the linked list.
      */
-    public class Node<T> implements nodeInterface<T> {
+    public class Node<T> implements NodeInterface<T> {
         private T value;
         Node<T> next;
 

@@ -1,6 +1,7 @@
 package datastructure.DataStructures;
 
-public class Queue<T> {
+import datastructure.dataStructureInterface.LinearStructure;
+public class Queue<T> implements LinearStructure<T> {
 
     private Node<T> first;
     private Node<T> last;
@@ -67,7 +68,7 @@ public class Queue<T> {
      *
      * @return The last node in the queue, or null if the queue is empty.
      */
-    public Node<T> bottom() {
+    public Node<T> getLast() {
         if (last != null) {
             return last;
         } else {
