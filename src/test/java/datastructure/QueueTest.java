@@ -28,8 +28,8 @@ public class QueueTest {
     public void testremoveLast() {
         Queue<Integer> queue = new Queue<>(1);
         queue.add(2);
-        assertEquals(1, queue.removeLast().value);
         assertEquals(2, queue.removeLast().value);
+        assertEquals(1, queue.removeLast().value);
         queue.removeLast();
         assertEquals(0, queue.size());
     }
@@ -162,6 +162,37 @@ public class QueueTest {
         }
 
     }
-    
+
+    /** 
+     * Class to nest get Node tests
+    */
+
+    @Nested
+    class TestGetElements {
+        /** 
+         * Test if returns null when invalid index is given.
+        */
+        public void testReturningNullOnGivingInvalidIndex()
+        {
+            Queue<Integer> testQueue = new Queue<Integer>(1);
+            assertNull(testQueue.get(1));
+            assertNull(testQueue.get(-1));
+
+        }
+
+        /** 
+         * Test if first element is returing 
+        */
+        public void testGetingQueueElements()
+        {
+            Queue<Integer> testQueue = new Queue<Integer>(1);
+            testQueue.add(2);
+            testQueue.add(3);
+
+            assertEquals(1, testQueue.get(0).value);
+            assertEquals(2, testQueue.get(1).value);
+            assertEquals(3, testQueue.get(2).value);
+        }   
+    }
     
 }

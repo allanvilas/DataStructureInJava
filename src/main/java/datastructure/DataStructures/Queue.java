@@ -137,18 +137,32 @@ public class Queue<T> implements LinearStructure<T> {
      * @return The removed node, or null if the queue is empty.
      */
     public Node<T> removeLast() {
-        if (length == 0)
-            return null;
+        Node<T> tempNode = this.first;
+        switch (length) {
+            case 0:
+                return null;
+            case 1:
+                tempNode = this.first;
+                clear();
+                break;
+            case 2:
+                tempNode = tempNode.next;
+                first.next = null;
+                last = first;
+                length--;
+                break;
+            default:
+                for (int i = 0; i < (length-2); i++) {
+                    tempNode = tempNode.next;
+                }
 
-        Node<T> tempNode = first;
-
-        if (length == 1) {
-            clear();
-        } else {
-            first = first.next;
-            tempNode.next = null;
+                last = tempNode;
+                last.next = null;
+                tempNode = tempNode.next;
+                length--;
+                break;
         }
-        length--;
+        
         return tempNode;
     }
 
@@ -164,9 +178,13 @@ public class Queue<T> implements LinearStructure<T> {
         Node<T> tempNode = first;
 
         if (length == 1) {
-            tempNode = get(0);
             clear();
+            return tempNode;
         }
+        
+        first = tempNode.next;
+        return tempNode;
+
     }
 
     /**
