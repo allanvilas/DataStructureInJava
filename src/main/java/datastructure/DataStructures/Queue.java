@@ -23,8 +23,13 @@ public class Queue<T> implements LinearStructure<T> {
             this.value = value;
         }
 
-        public void setValue(T value) {
-            this.value = value;
+        public boolean setValue(T value) {
+                try {
+                    this.value = value;
+                    return true;
+                } catch (Exception e) {
+                    return false;
+                }
         }
 
         public T getValue() {
@@ -100,11 +105,14 @@ public class Queue<T> implements LinearStructure<T> {
 
     /**
      * Define the node value by given index.
+     * @param T given value to define on the variable
+     * @param index given index when the new value gona be defined
+     * @return retuns if this operation is sucessfull
      */
     public boolean set(T value, int index) {
         if(index < 0 && index >= length) return false;
 
-        get(index).value = value;
+        return get(index).setValue(value);
     }
 
     /**
@@ -216,7 +224,7 @@ public class Queue<T> implements LinearStructure<T> {
         Node<T> tempNode = first;
 
         for (int j = 0; j < length; j++) {
-            if (tempNode.value == value) {
+            if (tempNode.getValue == value) {
                 return tempNode;                
             } else {
                 tempNode = tempNode.next;
