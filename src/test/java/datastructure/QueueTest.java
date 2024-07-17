@@ -47,6 +47,24 @@ public class QueueTest {
         assertTrue(queue.isEmpty());
     }
 
+    /**
+     * Tests if the set method properly change the value on the node
+     */
+    @Test
+    @DisplayName("Test change node value")
+    public void testSetNodeValue() {
+        Queue<Integer> testQueue = new Queue<>(1);
+        testQueue.add(2);
+
+        //False assert
+        assertFalse(testQueue.set(100, -1));
+        assertFalse(testQueue.set(100, 10))
+        
+        //True assert
+        assertTrue(testQueue.set(100, 1))
+    }
+
+
     @Nested
     class TestReturningBottomNode {
          /**
