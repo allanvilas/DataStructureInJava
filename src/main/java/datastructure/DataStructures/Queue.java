@@ -37,6 +37,16 @@ public class Queue<T> implements LinearStructure<T> {
     }
 
     /**
+     * Clear the queue
+     * 
+     */
+    public void clear()
+    {
+        length = 0;
+        first = null;
+        last = null;
+    }
+    /**
      * Retrieves the first node in the queue.
      *
      * @return The first node in the queue, or null if the queue is empty.
