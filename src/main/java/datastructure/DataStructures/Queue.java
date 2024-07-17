@@ -46,7 +46,24 @@ public class Queue<T> implements LinearStructure<T> {
         first = null;
         last = null;
     }
-    
+
+    /**
+     * 
+     */
+    public Node<T> get(int index)
+    {
+        if(index > (length-1) || index < 0) return null;
+        if (index == 0) getFirst();
+        if (index == (length-1)) getLast();
+
+        Node<T> returnNode = first;
+
+        for (int i = 0; i < index; i++) {
+            returnNode = returnNode.next;
+        }
+        return returnNode;
+    }
+
     /**
      * Retrieves the first node in the queue.
      *
@@ -59,21 +76,7 @@ public class Queue<T> implements LinearStructure<T> {
             return null;
         }
     }
-
-
-    /**
-     * Retrieves true if the queue is empty.
-     *
-     * @return true if the queue is empty.
-     */
-    public boolean isEmpty() {
-        if (first == null) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
+    
     /**
      * Retrieves the last node in the queue.
      *
@@ -84,6 +87,19 @@ public class Queue<T> implements LinearStructure<T> {
             return last;
         } else {
             return null;
+        }
+    }
+    
+    /**
+     * Retrieves true if the queue is empty.
+     *
+     * @return true if the queue is empty.
+     */
+    public boolean isEmpty() {
+        if (first == null) {
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -124,19 +140,34 @@ public class Queue<T> implements LinearStructure<T> {
         if (length == 0)
             return null;
 
-        Node<T> temp = first;
+        Node<T> tempNode = first;
 
         if (length == 1) {
-            first = null;
-            last = null;
+            clear();
         } else {
             first = first.next;
-            temp.next = null;
+            tempNode.next = null;
         }
         length--;
-        return temp;
+        return tempNode;
     }
 
+    /**
+     * 
+     * @param value
+     * @return
+     */
+    public Node<T> removeFirst()
+    {
+        if (length == 0) return null;
+        
+        Node<T> tempNode = first;
+
+        if (length == 1) {
+            tempNode = get(0);
+            clear();
+        }
+    }
 
     /**
      * Return the first node that contains the value.
