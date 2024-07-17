@@ -74,7 +74,7 @@ public class QueueTest {
     }
 
     @Nested
-    class TestReturningPeekNode {
+    class TestReturninggetFirstNode {
          /**
          * Test if returns the element at the back of the queue.
          */
@@ -84,7 +84,7 @@ public class QueueTest {
             Queue<Integer> testQueue = new Queue<>(1);
             testQueue.add(2);
             testQueue.add(3);
-            assertEquals(1, testQueue.peek().value);
+            assertEquals(1, testQueue.getFirst().value);
         }
 
         /**
@@ -95,7 +95,7 @@ public class QueueTest {
         public void testIfWhaddIsEmptyBottomReturnsNull() {
             Queue<Integer> testQueue = new Queue<>(1);
             testQueue.removeLast();
-            assertNull(testQueue.peek());
+            assertNull(testQueue.getFirst());
         }
     }
 

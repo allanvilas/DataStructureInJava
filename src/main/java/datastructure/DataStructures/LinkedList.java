@@ -162,20 +162,25 @@ public class LinkedList<T> implements LinearStructure<T> {
      */
     @Override
     public boolean insert(T value,int index) {
-        if (index < 0 || index > length)
-            return false;
-        if (index == 0) {
+
+        if (index < 0 || index > length) return false;
+
+        if (index == 0) 
+        {
+            addFirst(value);
+            return true;
+        }
+
+        if (index == length) 
+        {
             add(value);
             return true;
         }
-        if (index == length) {
-            add(value);
-            return true;
-        }
+
         Node<T> newNode = new Node<>(value);
-        Node<T> temp = get(index - 1);
-        newNode.next = temp.next;
-        temp.next = newNode;
+        Node<T> previousNode = get(index - 1);
+        newNode.next = previousNode.next;
+        previousNode.next = newNode;
         length++;
         return true;
     }

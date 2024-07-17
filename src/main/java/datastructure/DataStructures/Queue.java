@@ -41,7 +41,7 @@ public class Queue<T> implements LinearStructure<T> {
      *
      * @return The first node in the queue, or null if the queue is empty.
      */
-    public Node<T> peek() {
+    public Node<T> getFirst() {
         if (first != null) {
             return first;
         } else {
