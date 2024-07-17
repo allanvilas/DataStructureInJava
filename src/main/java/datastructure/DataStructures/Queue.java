@@ -11,7 +11,7 @@ public class Queue<T> implements LinearStructure<T> {
      * Represents a node in the queue, containing a value and reference to the next node.
      */
     public class Node<T> {
-        public T value;
+        private T value;
         Node<T> next;
 
         /**
@@ -21,6 +21,14 @@ public class Queue<T> implements LinearStructure<T> {
          */
         Node(T value) {
             this.value = value;
+        }
+
+        public void setValue(T value) {
+            this.value = value;
+        }
+
+        public T getValue() {
+            return this.value;
         }
     }
 
@@ -89,7 +97,16 @@ public class Queue<T> implements LinearStructure<T> {
             return null;
         }
     }
-    
+
+    /**
+     * Define the node value by given index.
+     */
+    public boolean set(T value, int index) {
+        if(index < 0 && index >= length) return false;
+
+        get(index).value = value;
+    }
+
     /**
      * Retrieves true if the queue is empty.
      *
@@ -162,7 +179,7 @@ public class Queue<T> implements LinearStructure<T> {
                 length--;
                 break;
         }
-        
+
         return tempNode;
     }
 

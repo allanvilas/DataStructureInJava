@@ -16,7 +16,7 @@ public class QueueTest {
     public void testadd() {
         Queue<Integer> queue = new Queue<>(1);
         queue.add(2);
-        assertEquals(2, queue.getLast().value);
+        assertEquals(2, queue.getLast().getValue());
         assertEquals(2, queue.size());
     }
 
@@ -28,8 +28,8 @@ public class QueueTest {
     public void testremoveLast() {
         Queue<Integer> queue = new Queue<>(1);
         queue.add(2);
-        assertEquals(2, queue.removeLast().value);
-        assertEquals(1, queue.removeLast().value);
+        assertEquals(2, queue.removeLast().getValue());
+        assertEquals(1, queue.removeLast().getValue());
         queue.removeLast();
         assertEquals(0, queue.size());
     }
@@ -58,7 +58,7 @@ public class QueueTest {
             Queue<Integer> testQueue = new Queue<>(1);
             testQueue.add(2);
             testQueue.add(3);
-            assertEquals(3, testQueue.getLast().value);
+            assertEquals(3, testQueue.getLast().getValue());
         }
 
         /**
@@ -84,7 +84,7 @@ public class QueueTest {
             Queue<Integer> testQueue = new Queue<>(1);
             testQueue.add(2);
             testQueue.add(3);
-            assertEquals(1, testQueue.getFirst().value);
+            assertEquals(1, testQueue.getFirst().getValue());
         }
 
         /**
@@ -145,7 +145,7 @@ public class QueueTest {
             testQueue.add(25);
             testQueue.add(35);
             testQueue.add(12);
-            assertEquals(35, testQueue.contains(35).value);
+            assertEquals(35, testQueue.contains(35).getValue());
         }
 
         /** 
@@ -189,9 +189,9 @@ public class QueueTest {
             testQueue.add(2);
             testQueue.add(3);
 
-            assertEquals(1, testQueue.get(0).value);
-            assertEquals(2, testQueue.get(1).value);
-            assertEquals(3, testQueue.get(2).value);
+            assertEquals(1, testQueue.get(0).getValue());
+            assertEquals(2, testQueue.get(1).getValue());
+            assertEquals(3, testQueue.get(2).getValue());
         }   
     }
     
