@@ -47,6 +47,28 @@ public class QueueTest {
         assertTrue(queue.isEmpty());
     }
 
+    /** 
+     * Remove element by given index
+    */
+    @Test
+    @DisplayName("Remove an element by a given index")
+    public void removeElementByGivenIndex() {
+        Queue<Integer> testQueue = new Queue<Integer>(1);
+        testQueue.add(2);
+        testQueue.add(3);
+        testQueue.add(4);
+        testQueue.add(5);
+        testQueue.add(6);
+        testQueue.add(7);
+        testQueue.add(8);
+        assertNull(testQueue.remove(-1));
+        assertNull(testQueue.remove(8));
+
+        assertEquals(1, testQueue.remove(0).getValue());
+        assertEquals(5, testQueue.remove(3).getValue());
+        assertEquals(3, testQueue.remove(1).getValue());
+    }
+
     /**
      * Tests if the set method properly change the value on the node
      */
@@ -58,10 +80,10 @@ public class QueueTest {
 
         //False assert
         assertFalse(testQueue.set(100, -1));
-        assertFalse(testQueue.set(100, 10))
+        assertFalse(testQueue.set(100, 10));
         
         //True assert
-        assertTrue(testQueue.set(100, 1))
+        assertTrue(testQueue.set(100, 1));
     }
 
 

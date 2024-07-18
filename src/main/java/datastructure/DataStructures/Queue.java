@@ -112,7 +112,11 @@ public class Queue<T> implements LinearStructure<T> {
     public boolean set(T value, int index) {
         if(index < 0 && index >= length) return false;
 
-        return get(index).setValue(value);
+        Node<T> tempNode = get(index);
+        
+        if(tempNode == null) return false;
+
+        return tempNode.setValue(value);
     }
 
     /**
@@ -192,9 +196,9 @@ public class Queue<T> implements LinearStructure<T> {
     }
 
     /**
-     * 
-     * @param value
-     * @return
+     * Remove the first value of the queue
+     *
+     * @return return the removed node.
      */
     public Node<T> removeFirst()
     {
@@ -213,6 +217,36 @@ public class Queue<T> implements LinearStructure<T> {
     }
 
     /**
+     * 
+     * @param value
+     * @return
+     */
+    public Node<T> remove(int index) {
+        if(index < 0 || index >= length) return null;
+
+        if(index == 0) return removeFirst();
+
+        if(index == (length-1)) return removeLast();
+
+        Node<T> tempNode = this.first;
+        Node<T> previousNode = null;
+        Node<T> afterNode = null;
+        for (int i = 0; i < index; i++) {
+            
+            if( i == (index-1) ) {
+                previousNode = tempNode;
+            }
+            if( i == index && index >= length ) {
+                afterNode = tempNode.next;
+            }
+            tempNode = tempNode.next;            
+        }
+        
+        previousNode.next = afterNode;
+        return tempNode;
+    }
+
+    /**
      * Return the first node that contains the value.
      *
      * @return The first ocurrence node, or null if the queue is empty or if the value don't exists.
@@ -224,7 +258,7 @@ public class Queue<T> implements LinearStructure<T> {
         Node<T> tempNode = first;
 
         for (int j = 0; j < length; j++) {
-            if (tempNode.getValue == value) {
+            if (tempNode.getValue() == value) {
                 return tempNode;                
             } else {
                 tempNode = tempNode.next;
@@ -232,5 +266,11 @@ public class Queue<T> implements LinearStructure<T> {
         }
 
         return null;
+    }
+
+    @Override
+    public boolean insert(T value, int index) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'insert'");
     }
 }
