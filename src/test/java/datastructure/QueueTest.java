@@ -70,6 +70,22 @@ public class QueueTest {
     }
 
     /**
+     * Test inserting value in a position given by index.
+     */
+    @Test
+    @DisplayName("Test insertion of a value in the middle of the queue.")
+    public void testInsertingValue() {
+        Queue<Integer> testQueue = new Queue<Integer>(1);
+        testQueue.add(10);
+        testQueue.add(20);
+        testQueue.add(30);
+
+        testQueue.insert(15, 2);
+
+        assertEquals(15,testQueue.get(2).getValue());
+    }
+
+    /**
      * Tests if the set method properly change the value on the node
      */
     @Test
