@@ -82,7 +82,9 @@ public class QueueTest {
 
         testQueue.insert(15, 2);
 
-        assertEquals(15,testQueue.get(2).getValue());
+        assertEquals(10,testQueue.get(1).getValue());
+        assertEquals(15,testQueue.get(2).getValue()); // new
+        assertEquals(20,testQueue.get(3).getValue());
     }
 
     /**

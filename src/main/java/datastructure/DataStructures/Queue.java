@@ -270,7 +270,34 @@ public class Queue<T> implements LinearStructure<T> {
 
     @Override
     public boolean insert(T value, int index) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insert'");
+
+        Node<T> newNode = new Node<T>(value);    
+        //TODO: add logic to prevent erros when trying to insert the last item of the  queue
+        //TODO: add validation for wrong indexes
+        switch (index) {
+            case 0:
+                newNode.next = first;
+                first = newNode;
+                return true;
+            case 1:
+                newNode.next = this.first.next.next;
+                this.first.next = newNode;
+                return true;
+            default:
+                Node<T> tempNode = this.first;
+
+                for (int i = 1; i <= index; i++) {
+                    tempNode = tempNode.next;
+        
+                    if( i == index-1 ) {
+                        newNode.next = tempNode.next;
+                        tempNode.next = newNode;
+                    }
+                }
+
+                return true;
+
+        }
+     
     }
 }
