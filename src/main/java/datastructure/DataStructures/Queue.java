@@ -53,6 +53,8 @@ public class Queue<T> implements LinearStructure<T> {
      * Clear the queue
      * 
      */
+
+    @Override
     public void clear()
     {
         length = 0;
@@ -61,8 +63,10 @@ public class Queue<T> implements LinearStructure<T> {
     }
 
     /**
-     * 
+     * @return Returns the node in the given index position
      */
+
+    @Override
     public Node<T> get(int index)
     {
         if(index > (length-1) || index < 0) return null;
@@ -82,6 +86,8 @@ public class Queue<T> implements LinearStructure<T> {
      *
      * @return The first node in the queue, or null if the queue is empty.
      */
+    
+    @Override
     public Node<T> getFirst() {
         if (first != null) {
             return first;
@@ -95,6 +101,8 @@ public class Queue<T> implements LinearStructure<T> {
      *
      * @return The last node in the queue, or null if the queue is empty.
      */
+    
+     @Override
     public Node<T> getLast() {
         if (last != null) {
             return last;
@@ -109,6 +117,8 @@ public class Queue<T> implements LinearStructure<T> {
      * @param index given index when the new value gona be defined
      * @return retuns if this operation is sucessfull
      */
+    
+     @Override
     public boolean set(T value, int index) {
         if(index < 0 && index >= length) return false;
 
@@ -124,6 +134,8 @@ public class Queue<T> implements LinearStructure<T> {
      *
      * @return true if the queue is empty.
      */
+
+    @Override
     public boolean isEmpty() {
         if (first == null) {
             return true;
@@ -137,6 +149,7 @@ public class Queue<T> implements LinearStructure<T> {
      *
      * @return The current number of elements in the queue.
      */
+    @Override
     public int size() {
         return length;
     }
@@ -146,6 +159,7 @@ public class Queue<T> implements LinearStructure<T> {
      *
      * @param value The value to be added to the queue.
      */
+    @Override
     public void add(T value) {
         Node<T> newNode = new Node<>(value);
 
@@ -165,6 +179,7 @@ public class Queue<T> implements LinearStructure<T> {
      *
      * @return The removed node, or null if the queue is empty.
      */
+    @Override
     public Node<T> removeLast() {
         Node<T> tempNode = this.first;
         switch (length) {
@@ -200,6 +215,7 @@ public class Queue<T> implements LinearStructure<T> {
      *
      * @return return the removed node.
      */
+    @Override
     public Node<T> removeFirst()
     {
         if (length == 0) return null;
@@ -221,6 +237,7 @@ public class Queue<T> implements LinearStructure<T> {
      * @param value
      * @return
      */
+    @Override
     public Node<T> remove(int index) {
         if(index < 0 || index >= length) return null;
 
@@ -251,6 +268,7 @@ public class Queue<T> implements LinearStructure<T> {
      *
      * @return The first ocurrence node, or null if the queue is empty or if the value don't exists.
      */
+
     public Node<T> contains(T value) {
         if (length == 0)
             return null;
@@ -271,22 +289,24 @@ public class Queue<T> implements LinearStructure<T> {
     @Override
     public boolean insert(T value, int index) {
 
+        if(index > length || index < 0) return false;
+
+        if(index == length) {
+            add(value);
+            return true;
+        }
+
         Node<T> newNode = new Node<T>(value);    
-        //TODO: add logic to prevent erros when trying to insert the last item of the  queue
-        //TODO: add validation for wrong indexes
+
         switch (index) {
             case 0:
                 newNode.next = first;
                 first = newNode;
                 return true;
-            case 1:
-                newNode.next = this.first.next.next;
-                this.first.next = newNode;
-                return true;
             default:
                 Node<T> tempNode = this.first;
 
-                for (int i = 1; i <= index; i++) {
+                for (int i = 0; i <= index; i++) {
                     tempNode = tempNode.next;
         
                     if( i == index-1 ) {

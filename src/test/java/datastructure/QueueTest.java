@@ -69,22 +69,70 @@ public class QueueTest {
         assertEquals(3, testQueue.remove(1).getValue());
     }
 
-    /**
-     * Test inserting value in a position given by index.
-     */
-    @Test
-    @DisplayName("Test insertion of a value in the middle of the queue.")
-    public void testInsertingValue() {
-        Queue<Integer> testQueue = new Queue<Integer>(1);
-        testQueue.add(10);
-        testQueue.add(20);
-        testQueue.add(30);
+    @Nested
+    class InsertingTest {
 
-        testQueue.insert(15, 2);
+        
+        /**
+         * Test inserting a value on the begining of the queue
+         */
+        @Test
+        @DisplayName("Test inserting a value on the begining of the queue")
+        public void TestInsertingOnBegining() {
+            Queue<Integer> testQueue = new Queue<Integer>(1);
+            testQueue.add(10);
+            testQueue.add(20);
+            testQueue.add(30);
 
-        assertEquals(10,testQueue.get(1).getValue());
-        assertEquals(15,testQueue.get(2).getValue()); // new
-        assertEquals(20,testQueue.get(3).getValue());
+            testQueue.insert(15, 0);
+
+            assertEquals(15,testQueue.get(0).getValue()); // new
+            assertEquals(1,testQueue.get(1).getValue()); 
+        }
+
+        /**
+         * Test trying to insert a invalid index value
+         */
+        @Test
+        @DisplayName("Test trying to insert a invalid index value")
+        public void testInsertingInvalidIndexValue() {
+            Queue<Integer> testQueue = new Queue<Integer>(1);
+
+            assertFalse(testQueue.insert(10,1));
+        }
+
+        /**
+         *  Test inserting a value on the end of the queue
+         */
+        @Test
+        @DisplayName("Test inserting a value on the end of the queue")
+        public void testInsertingOnQueueEnd() {
+            Queue<Integer> testQueue = new Queue<Integer>(1);
+            testQueue.add(2);
+            testQueue.add(3);
+
+            assertTrue(testQueue.insert(10,3));
+            assertEquals(10, testQueue.get(3).getValue());
+        }
+
+        /**
+         * Test inserting value in a position given by index.
+         */
+        @Test
+        @DisplayName("Test insertion of a value in the middle of the queue.")
+        public void testInsertingValue() {
+            Queue<Integer> testQueue = new Queue<Integer>(1);
+            testQueue.add(10);
+            testQueue.add(20);
+            testQueue.add(30);
+
+            testQueue.insert(15, 2);
+
+            assertEquals(10,testQueue.get(1).getValue());
+            assertEquals(15,testQueue.get(2).getValue()); // new
+            assertEquals(20,testQueue.get(3).getValue());
+        }
+
     }
 
     /**
