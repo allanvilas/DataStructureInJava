@@ -1,7 +1,7 @@
 package datastructure.DataStructures;
 
-import datastructure.dataStructureInterface.LinearStructure;
-public class Queue<T> implements LinearStructure<T> {
+import datastructure.dataStructureInterface.ILinearStructure;
+public class Queue<T> implements ILinearStructure<T> {
 
     private Node<T> first;
     private Node<T> last;
@@ -316,8 +316,6 @@ public class Queue<T> implements LinearStructure<T> {
                 }
 
                 return true;
-
         }
-     
     }
 }
