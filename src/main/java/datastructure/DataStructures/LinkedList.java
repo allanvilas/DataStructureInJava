@@ -1,6 +1,5 @@
 package datastructure.DataStructures;
 import datastructure.dataStructureInterface.ILinearStructure;
-import datastructure.dataStructureInterface.NodeInterface;
 
 public class LinkedList<T> implements ILinearStructure<T> {
     private Node<T> head;
@@ -10,14 +9,14 @@ public class LinkedList<T> implements ILinearStructure<T> {
     /**
      * Inner class representing a node in the linked list.
      */
-    public class Node<T> implements NodeInterface<T> {
+    public class Node<T> {
         private T value;
         Node<T> next;
 
         Node(T value) {
             this.value = value;
         }
-        @Override
+
         public T getValue() {
             return this.value;
         }
